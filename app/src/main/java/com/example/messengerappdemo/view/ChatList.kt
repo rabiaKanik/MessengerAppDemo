@@ -21,7 +21,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -30,7 +29,6 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -38,10 +36,7 @@ import com.example.messengerappdemo.R
 import com.example.messengerappdemo.model.MessageData
 import com.example.messengerappdemo.model.UserProfile
 import com.example.messengerappdemo.model.userProfileList
-import com.example.messengerappdemo.ui.theme.AppCloneTheme
-import com.example.messengerappdemo.ui.theme.WhatsAppBulueColor
-import com.example.messengerappdemo.ui.theme.WhatsAppOutgoingMsg
-import com.example.messengerappdemo.ui.theme.WhatsAppThemeColor
+import com.example.messengerappdemo.ui.theme.*
 import java.util.*
 
 
@@ -142,7 +137,7 @@ fun ChatList(userId :Int, navController: NavHostController) {
                     }
                 }
             },
-            backgroundColor = WhatsAppThemeColor,
+            backgroundColor = MainBlue,
             elevation = AppBarDefaults.TopAppBarElevation
         )
     }
@@ -287,7 +282,7 @@ fun BottomDesign() {
             ) {
                 FloatingActionButton(
                     onClick = { },
-                    backgroundColor = WhatsAppThemeColor
+                    backgroundColor = MainBlue
                 ) {
                     Icon(
                         painter = painterResource(
@@ -306,7 +301,6 @@ fun BottomDesign() {
         }
     }
 
-
     @Composable
     fun ChatListItem(data: MessageData, index: Int, userProfile: UserProfile) {
         Column(
@@ -323,7 +317,7 @@ fun BottomDesign() {
 
                     Text(
                         text = "${userProfile.name}",
-                        color = WhatsAppBulueColor,
+                        color = MainBlueInfo,
                         fontWeight = FontWeight.Bold,
                         fontSize = 15.sp
                     )

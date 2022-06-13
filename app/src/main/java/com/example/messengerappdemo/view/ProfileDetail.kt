@@ -2,7 +2,6 @@ package com.example.messengerappdemo.view
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -18,15 +17,12 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import coil.compose.rememberImagePainter
-import coil.transform.CircleCropTransformation
 import com.example.messengerappdemo.model.userProfileList
-import com.example.messengerappdemo.ui.theme.WhatsAppFloatIconColor
-import com.example.messengerappdemo.ui.theme.WhatsAppThemeColor
+import com.example.messengerappdemo.ui.theme.MainBlue
+import com.example.messengerappdemo.ui.theme.MainPink
 
 
 @Composable
@@ -59,7 +55,7 @@ fun UserProfileDetailsScreen(userId :Int,navController: NavHostController?){
                     }
                 }
             },
-            backgroundColor = WhatsAppThemeColor)
+            backgroundColor = MainBlue)
     }){
         Surface(
             modifier = Modifier.fillMaxSize()
@@ -116,7 +112,7 @@ fun ProfileNotification(){
                     checked = checkedState.value,
                     onCheckedChange = { checkedState.value = it },
                     colors = SwitchDefaults.colors(
-                        checkedThumbColor = WhatsAppFloatIconColor
+                        checkedThumbColor = MainPink
                     )
                 )
             }
@@ -168,7 +164,7 @@ fun ProfileButtonAction(){
             .padding(1.dp)
     ) {
         Button(
-            colors = ButtonDefaults.buttonColors(backgroundColor = WhatsAppFloatIconColor),
+            colors = ButtonDefaults.buttonColors(backgroundColor = MainPink),
             onClick = {
                 // do something here
             },
@@ -191,7 +187,7 @@ fun ProfileButtonAction(){
         }
         Spacer(modifier = Modifier.width(10.dp))
         Button(
-            colors = ButtonDefaults.buttonColors(backgroundColor = WhatsAppFloatIconColor),onClick = {
+            colors = ButtonDefaults.buttonColors(backgroundColor = MainPink),onClick = {
                 // do something here
             },
             modifier = Modifier.size(width = 100.dp,height = 60.dp)
@@ -212,7 +208,7 @@ fun ProfileButtonAction(){
 
         Spacer(modifier = Modifier.width(10.dp))
         Button(
-            colors = ButtonDefaults.buttonColors(backgroundColor = WhatsAppFloatIconColor),onClick = {
+            colors = ButtonDefaults.buttonColors(backgroundColor = MainPink),onClick = {
                 // do something here
             },
             modifier = Modifier.size(width = 100.dp,height = 60.dp)

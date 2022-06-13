@@ -27,10 +27,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.messengerappdemo.model.UserProfile
 import com.example.messengerappdemo.model.userProfileList
-import com.example.messengerappdemo.ui.theme.AppCloneTheme
-import com.example.messengerappdemo.ui.theme.MessengerAppDemoTheme
-import com.example.messengerappdemo.ui.theme.WhatsAppFloatIconColor
-import com.example.messengerappdemo.ui.theme.WhatsAppThemeColor
+import com.example.messengerappdemo.ui.theme.*
 import com.example.messengerappdemo.utils.Constants._tabCurrentStatus
 import com.example.messengerappdemo.utils.Constants.tabCurrentStatus
 import com.example.messengerappdemo.view.*
@@ -167,7 +164,7 @@ fun MainAppActivity(navController: NavHostController) {
                 }
 
             },
-            backgroundColor = WhatsAppThemeColor,
+            backgroundColor = DarkBlue,
             elevation = AppBarDefaults.TopAppBarElevation
         )
     }
@@ -184,7 +181,7 @@ fun MainAppActivity(navController: NavHostController) {
                 onClick = {
                     Toast.makeText(context, "Message Clicked", Toast.LENGTH_SHORT).show()
                 },
-                backgroundColor = WhatsAppFloatIconColor,
+                backgroundColor = MainPink,
                 elevation = FloatingActionButtonDefaults.elevation(),
                 modifier = Modifier.padding(10.dp)
             ) {
@@ -238,13 +235,13 @@ fun Tabs(pagerState: PagerState) {
 
     TabRow(
         selectedTabIndex = pagerState.currentPage,
-        backgroundColor = WhatsAppThemeColor,
+        backgroundColor = MainBlue,
         contentColor = Color.Gray,
         indicator = { tabPositions ->
             TabRowDefaults.Indicator(
                 modifier = Modifier.pagerTabIndicatorOffset(pagerState, tabPositions),
                 height = 3.dp,
-                color = Color.White
+                color = LightPink,
             )
         }
     ) {
@@ -284,7 +281,7 @@ fun TabsContent(pagerState: PagerState, navController: NavHostController) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    MessengerAppDemoTheme {
+   AppCloneTheme() {
         MainAppActivity(navController = NavHostController(LocalContext.current))
     }
 }

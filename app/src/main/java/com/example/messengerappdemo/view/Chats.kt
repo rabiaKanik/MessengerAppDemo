@@ -28,6 +28,8 @@ import coil.transform.CircleCropTransformation
 import com.example.messengerappdemo.model.MessageData
 import com.example.messengerappdemo.model.UserProfile
 import com.example.messengerappdemo.model.userProfileList
+import com.example.messengerappdemo.ui.theme.MainError
+import com.example.messengerappdemo.ui.theme.MainGreen
 
 
 @Composable
@@ -81,8 +83,8 @@ fun ProfilePicture(pictureUrl: String, onlineStatus: Boolean, imageSize: Dp) {
         border = BorderStroke(
             width = 1.dp,
             color = if (onlineStatus)
-                Color.Green
-            else Color.Red
+                MainGreen
+            else MainError
         ),
         modifier = Modifier
             .padding(12.dp),
