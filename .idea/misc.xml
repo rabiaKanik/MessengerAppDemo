@@ -4,8 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/MainActivity.kt" value="0.22" />
+        <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/ChatList.kt" value="0.33" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/ProfileDetail.kt" value="0.25" />
+        <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/Status.kt" value="0.22" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/res/drawable/ic_attach.xml" value="0.194" />
+        <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/res/drawable/ic_baseline_call.xml" value="0.1" />
+        <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.1" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/res/drawable/ic_baseline_videocam_24.xml" value="0.194" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/res/drawable/ic_camera.xml" value="0.194" />
       </map>

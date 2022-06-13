@@ -71,7 +71,8 @@ fun UserProfileDetailsScreen(userId :Int,navController: NavHostController?){
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                ProfilePicture("https://images.unsplash.com/photo-1530577197743-7adf14294584?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NTV8fHBvcnRyYWl0fGVufDB8MnwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", true,240.dp)
+                ProfilePicture(userProfile.pictureUrl,userProfile.status,240.dp)
+                ProfileContent(userProfile.name, userProfile.status,Alignment.CenterHorizontally, userProfile.date)
                 ProfileButtonAction()
                 ProfileNotification()
                 ProfileChildNotification()
@@ -165,7 +166,6 @@ fun ProfileButtonAction(){
     Row(
         Modifier
             .padding(1.dp)
-
     ) {
         Button(
             colors = ButtonDefaults.buttonColors(backgroundColor = WhatsAppFloatIconColor),
@@ -203,7 +203,8 @@ fun ProfileButtonAction(){
             ) {
                 Icon(
                     imageVector = Icons.Filled.Videocam,
-                    tint = Color.White,                    contentDescription = "Localized description"
+                    tint = Color.White,
+                    contentDescription = "Localized description"
                 )
                 //Text(text = "Görüntülü")
             }
@@ -277,39 +278,9 @@ fun ProfileChildNotification(){
         }
     }
 }
-/*
-@Composable
-fun ProfilePicture(pictureUrl: String, onlineStatus: Boolean, imageSize: Dp) {
-    Card(
-        shape = CircleShape,
-        border = BorderStroke(
-            width = 1.dp,
-            color = if (onlineStatus)
-                Color.Green
-            else Color.Red
-        ),
-        modifier = Modifier
-            .padding(12.dp)
-            .padding(top = 25.dp),
-        elevation = 4.dp
-    ) {
-        Image(
-            painter = rememberImagePainter(
-                data = pictureUrl,
-                builder = {
-                    transformations(CircleCropTransformation())
-                },
-            ),
-            modifier = Modifier.size(imageSize),
-            contentDescription = "Profile picture description",
-        )
-    }
-}
-
-
 
 @Preview(showBackground = true)
 @Composable
 fun UserProfileDetailsScreenPreview() {
-    }
-*/
+    UserProfileDetailsScreen(0,null)
+}

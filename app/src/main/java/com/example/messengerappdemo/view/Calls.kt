@@ -1,10 +1,16 @@
 package com.example.messengerappdemo.view
 
 import android.annotation.SuppressLint
+import android.provider.CallLog.Calls
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,12 +20,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.messengerappdemo.model.SampleData
 import com.example.messengerappdemo.R
+import com.example.messengerappdemo.model.UserProfile
 import java.text.SimpleDateFormat
 import java.util.*
 
-
+/*
 @SuppressLint("SimpleDateFormat")
 @Composable
 fun Calls() {
@@ -50,10 +58,28 @@ fun Calls() {
             }
         }
     }
+}*/
+
+@Composable
+fun CallListScreen(userProfiles: List<UserProfile>, navController: NavHostController){
+
+    Surface(
+        modifier = Modifier.fillMaxSize()
+    ){
+        LazyColumn{
+            items(userProfiles){
+                    userProfile -> Calls(userProfile = userProfile){
+                navController?.navigate("user_calls/${userProfile.id}")
+            }
+            }
+        }
+    }
+/**/
 }
 
 @Composable
-fun CallList(sampleData: SampleData, index: Int) {
+fun Calls(/*sampleData: SampleData, index: Int*/ userProfile: UserProfile, clickAction:() -> Unit) {
+    /*
     Column(
         modifier = Modifier.padding(5.dp)
     ) {
@@ -127,5 +153,85 @@ fun CallList(sampleData: SampleData, index: Int) {
                     .weight(0.2f)
             )
         }
+    }
+    */
+
+    Column(
+        modifier = Modifier.padding(5.dp)
+    ) {
+        Card(
+            modifier = Modifier
+                .padding(top = 2.dp, bottom = 2.dp, start = 10.dp, end = 2.dp)
+                .fillMaxWidth()
+                .wrapContentHeight(align = Alignment.Top)
+                .clickable(onClick = { clickAction.invoke() })
+                .size(width = 200.dp, height = 100.dp),
+            elevation = 5.dp,
+            shape = RoundedCornerShape(20.dp),
+            backgroundColor = Color.White
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                /*.clickable {
+                           navController.navigate("app_chat")
+                },
+                 */
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                ProfilePicture(userProfile.pictureUrl, userProfile.status,50.dp)
+                Column(
+                    modifier = Modifier
+                        .padding(5.dp)
+                        .weight(0.7f)
+                ) {
+                    Text(
+                        text = userProfile.name,
+                        fontSize = 15.sp,
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.padding(5.dp))
+
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Image(
+                            painter = painterResource(
+                                if (userProfile.status ){
+                                    R.drawable.ic_income_call
+
+                                }else{R.drawable.ic_outgoing_call}
+                            ) ,
+                            contentDescription = "income call",
+                            modifier = Modifier
+                                .width(20.dp)
+                                .height(20.dp)
+                                .padding(0.dp, 0.dp, 3.dp, 0.dp)
+                        )
+                        Text(
+                            text = "Today, ${userProfile.date}",
+                            fontSize = 15.sp,
+                            color = Color.Black,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                }
+                Image(
+                    painter = painterResource(
+                        if (userProfile.status){
+                            R.drawable.ic_baseline_call_24
+
+                        }else{R.drawable.ic_baseline_videocam_24}
+                    ) ,
+                    contentDescription = "income call",
+                    modifier = Modifier
+                        .width(40.dp)
+                        .height(40.dp)
+                        .defaultMinSize(minWidth = 5.dp, minHeight = 5.dp)
+                        .padding(top = 0.dp, bottom = 0.dp, start = 0.dp, end = 15.dp)
+                )
+            }
+        }
+
     }
 }

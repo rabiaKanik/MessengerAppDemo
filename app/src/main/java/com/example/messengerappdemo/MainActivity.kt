@@ -19,7 +19,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavArgument
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -276,7 +275,7 @@ fun TabsContent(pagerState: PagerState, navController: NavHostController) {
         when(page) {
             0 -> UserListScreen(userProfiles,navController)
             1 -> Status()
-            2 -> Calls()
+            2 ->CallListScreen(userProfiles,navController)
         }
     }
 }
