@@ -311,7 +311,7 @@ fun BottomDesign() {
                     modifier = Modifier
                         .fillMaxWidth(0.4f)
                         .clip(RoundedCornerShape(10.dp))
-                        .background(WhatsAppOutgoingMsg)
+                        .background(WhatsAppOutgoingMsg )
                         .padding(5.dp)
                 ) {
 

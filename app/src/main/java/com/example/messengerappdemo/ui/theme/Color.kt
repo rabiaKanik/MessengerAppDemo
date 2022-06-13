@@ -14,7 +14,7 @@ val WhatsAppActionBarColor = Color(0xFF128C7E)
 val WhatsAppFloatIconColor = Color(0xFF25D366)
 
 val WhatsAppChatBg = Color(0xFFECE5DD)
-val WhatsAppOutgoingMsg = Color(0xFFDCF8C6)
+val WhatsAppOutgoingMsg = Color(0xFFE5F7D6)
 
 val WhatsAppBulueColor= Color(0xFF34B7F1)
 
@@ -39,3 +39,5 @@ val LightGreen = Color(0xFF81C784)
 val DarkGreen  = Color(0xFF388E3C)
 
 val MainError  = Color(0xFFF44336)
+
+val TextBalloon  = Color(0xFFfafafa)
