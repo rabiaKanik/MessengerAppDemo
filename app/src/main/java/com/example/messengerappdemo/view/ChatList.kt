@@ -1,13 +1,17 @@
 package com.example.messengerappdemo.view
 
 import android.annotation.SuppressLint
+import android.view.WindowManager
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -16,11 +20,14 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.rounded.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -29,6 +36,7 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -37,6 +45,8 @@ import com.example.messengerappdemo.model.MessageData
 import com.example.messengerappdemo.model.UserProfile
 import com.example.messengerappdemo.model.userProfileList
 import com.example.messengerappdemo.ui.theme.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 @SuppressLint("SimpleDateFormat")
@@ -170,11 +180,15 @@ fun ChatList(userId :Int, navController: NavHostController) {
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BottomDesign() {
     val textState = remember { mutableStateOf(TextFieldValue()) }
     //var message: TextFieldValue by remember { mutableStateOf(TextFieldValue("")) }
     var expanded: Boolean by remember { mutableStateOf(true) }
+    var state by rememberSaveable { mutableStateOf("") }
+    val coroutineScope = rememberCoroutineScope()
+    val bringIntoViewRequester = remember { BringIntoViewRequester() }
 
     Row(
         modifier = Modifier
@@ -196,7 +210,7 @@ fun BottomDesign() {
                     imageVector = Icons.Rounded.NavigateNext,
                     contentDescription = "openbar",
                     Modifier
-                        .padding(8.dp, 4.dp, 4.dp, 4.dp)
+                        .padding(8.dp, 4.dp, 4.dp, 10.dp)
                         .clickable(onClick = { expanded = false })
                 )
             }
@@ -206,7 +220,7 @@ fun BottomDesign() {
                         imageVector = Icons.Rounded.CameraAlt,
                         contentDescription = "Camera",
                         Modifier
-                            .padding(8.dp, 13.dp, 4.dp, 4.dp)
+                            .padding(8.dp, 13.dp, 4.dp, 10.dp)
                             .clickable(onClick = { })
                     )
                     Icon(
@@ -226,8 +240,13 @@ fun BottomDesign() {
                 }
                 }
                 TextField(
-                    value = textState.value,
-                    onValueChange = { textState.value = it ; expanded = true },
+                    value = textState.value ,
+                    onValueChange = {
+                        textState.value = it ;
+                        expanded = true
+                        coroutineScope.launch {
+                            bringIntoViewRequester.bringIntoView()
+                        }},
                     placeholder = {
                         Text(
                             text = "Message",
@@ -237,7 +256,16 @@ fun BottomDesign() {
                     },
                     modifier = Modifier
                         .weight(0.66f)
-                        .wrapContentHeight(),
+                        .wrapContentHeight()
+                        .bringIntoViewRequester(bringIntoViewRequester)
+                        .onFocusChanged {
+                            if (it.isFocused) {
+                                coroutineScope.launch {
+                                    delay(400) // delay to way the keyboard shows up
+                                    bringIntoViewRequester.bringIntoView()
+                                }
+                            }
+                        },
                     keyboardOptions = KeyboardOptions(
                         capitalization = KeyboardCapitalization.None,
                         keyboardType = KeyboardType.Text,
@@ -358,14 +386,10 @@ fun BottomDesign() {
     }
 
 
-    /*
+
 @Preview(showBackground = true)
 @Composable
 fun ChatListPreview(){
-    AppCloneTheme{
-        ChatList(0, navController = NavHostController(LocalContext.current))
-    }
-
+    ChatList(0, navController = NavHostController(LocalContext.current))
 }
 
-     */

@@ -3,10 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/MainActivity.kt" value="0.33" />
-        <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/ChatList.kt" value="0.33" />
+        <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/MainActivity.kt" value="0.18" />
+        <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/ChatList.kt" value="0.25" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/ProfileDetail.kt" value="0.25" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/Search.kt" value="0.25" />
+        <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/Settings.kt" value="0.33" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/Status.kt" value="0.22" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/res/drawable/ic_attach.xml" value="0.194" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/res/drawable/ic_baseline_call.xml" value="0.1" />

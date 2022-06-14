@@ -25,11 +25,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.rememberImagePainter
 import coil.transform.CircleCropTransformation
-import com.example.messengerappdemo.model.MessageData
 import com.example.messengerappdemo.model.UserProfile
 import com.example.messengerappdemo.model.userProfileList
 import com.example.messengerappdemo.ui.theme.MainError
 import com.example.messengerappdemo.ui.theme.MainGreen
+
 
 
 @Composable
@@ -124,14 +124,14 @@ fun ProfileContent(userName: String, onlineStatus: Boolean, alignment: Alignment
                 modifier = Modifier.padding(end = 5.dp)
             )
 
-        }/*
+        }
         Text(
-            text = message.message,
+            text = "Selam!",
             fontSize = 15.sp,
             color = Color.Black,
             fontWeight = FontWeight.Normal
         )
-        */
+
     }
 }
 

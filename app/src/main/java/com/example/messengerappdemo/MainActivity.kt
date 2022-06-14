@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity() {
                     startDestination = "whats_app_main"
                 ) {
                     composable("whats_app_main") { MainAppActivity(navController) }
-                    //composable("whats_app_chat") { ChatList(navController) }
+                    composable("user_settings") { Settings(navController) }
                     composable("whats_app_search") { Search() }
                     composable(
                         route = "user_chat/{userId}",
@@ -153,7 +153,7 @@ fun MainAppActivity(navController: NavHostController) {
                                 DropdownMenuItem(onClick = { /*Handle New broadcast*/ }) {
                                     Text(text = "Yeni Durum")
                                 }
-                                DropdownMenuItem(onClick = { /*Handle Settings*/ }) {
+                                DropdownMenuItem(onClick = {  navController?.navigate("user_settings") }) {
                                     Text(text = "Ayarlar")
                                 }
                             }
