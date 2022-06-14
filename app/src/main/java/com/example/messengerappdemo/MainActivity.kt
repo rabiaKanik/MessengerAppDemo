@@ -1,12 +1,17 @@
 package com.example.messengerappdemo
 
 import android.os.Bundle
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.*
@@ -14,11 +19,16 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -33,6 +43,8 @@ import com.example.messengerappdemo.utils.Constants.tabCurrentStatus
 import com.example.messengerappdemo.view.*
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalPagerApi::class)
@@ -48,6 +60,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     composable("whats_app_main") { MainAppActivity(navController) }
                     //composable("whats_app_chat") { ChatList(navController) }
+                    composable("whats_app_search") { Search() }
                     composable(
                         route = "user_chat/{userId}",
                         arguments = listOf(navArgument("userId") {
@@ -96,7 +109,8 @@ fun MainAppActivity(navController: NavHostController) {
             actions = {
                 IconButton(
                     onClick = {
-                        Toast.makeText(context, "Clicked Search", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(context, "Clicked Search", Toast.LENGTH_SHORT).show()
+                        navController?.navigate("whats_app_search")
                     }
                 ) {
                     Icon(
@@ -275,6 +289,83 @@ fun TabsContent(pagerState: PagerState, navController: NavHostController) {
             2 ->CallListScreen(userProfiles,navController)
         }
     }
+}
+//SEARCH FUNCTION
+@Composable
+fun SearchView(state: MutableState<TextFieldValue>){
+    TextField(
+        value = state.value,
+        onValueChange = {
+            value -> state.value = value
+        },
+        modifier = Modifier.fillMaxWidth(),
+        textStyle = TextStyle(Color.White, fontSize = 18.sp),
+        leadingIcon = {
+            Icon(
+                Icons.Filled.Search,
+                contentDescription = "Search",
+                modifier = Modifier
+                    .padding(15.dp)
+                    .size(24.dp)
+            )
+        },
+        trailingIcon = {
+            if (state.value != TextFieldValue("")){
+                IconButton(onClick = {
+                    state.value = TextFieldValue("")
+                }) {
+                    Icon(
+                        Icons.Default.Close,
+                        contentDescription = "",
+                        modifier = Modifier
+                            .padding(15.dp)
+                            .size(24.dp)
+                    )
+                }
+            }
+        },
+        singleLine = true,
+        shape = RectangleShape,
+        colors =  TextFieldDefaults.textFieldColors(
+            textColor = Color.White,
+            cursorColor = Color.White,
+            leadingIconColor = Color.White,
+            trailingIconColor = Color.White,
+            backgroundColor = MainBlue,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent
+
+        )
+    )
+}
+//SEARCH VALUE PASS THE LIST
+@Composable
+fun UserListItem( userName: String, onItemClick: (String) -> Unit ){
+    Row(
+        modifier = Modifier
+            .clickable(onClick = { onItemClick(userName) })
+            .background(DarkBlue)
+            .height(57.dp)
+            .fillMaxWidth()
+            .padding(PaddingValues(8.dp, 16.dp))
+    ) {
+        Text(text = userName, fontSize = 18.sp, color = Color.White)
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun CountryListItemPreview() {
+   UserListItem(userName = "Micheal", onItemClick = { })
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SearchViewPreview() {
+    val textState = remember { mutableStateOf(TextFieldValue("")) }
+    SearchView(textState)
 }
 
 @OptIn(ExperimentalPagerApi::class)

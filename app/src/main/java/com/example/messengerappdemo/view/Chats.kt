@@ -46,7 +46,6 @@ fun UserListScreen(userProfiles: List<UserProfile>, navController: NavHostContro
             }
         }
     }
-
 }
 
 @Composable
