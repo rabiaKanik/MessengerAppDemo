@@ -3,7 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/MainActivity.kt" value="0.22" />
+        <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/MainActivity.kt" value="0.33" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/ChatList.kt" value="0.33" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/ProfileDetail.kt" value="0.25" />
         <entry key="..\:/Users/rabia.kanik/AndroidStudioProjects/MessengerAppDemo/app/src/main/java/com/example/messengerappdemo/view/Status.kt" value="0.22" />
@@ -15,4 +15,5 @@
       </map>
     </option>
   </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

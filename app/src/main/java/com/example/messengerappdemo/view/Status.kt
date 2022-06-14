@@ -3,11 +3,8 @@ package com.example.messengerappdemo.view
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -32,19 +29,19 @@ fun Status() {
     val strDate: String = date.format(Date())
 
     val listOfStatusData = listOf(
-        SampleData("Status 1", "Make It Easy Sample 1", "Sample Url", strDate),
-        SampleData("Status 2", "Make It Easy Sample 2", "Sample Url", strDate),
-        SampleData("Status 3", "Make It Easy Sample 3", "Sample Url", strDate),
-        SampleData("Status 4", "Make It Easy Sample 4", "Sample Url", strDate),
-        SampleData("Status 5", "Make It Easy Sample 5", "Sample Url", strDate)
+        SampleData("Grup 1", "text 1", "Sample Url", strDate),
+        SampleData("Grup 2", "text 2", "Sample Url", strDate),
+        SampleData("Grup 3", "text 3", "Sample Url", strDate),
+        SampleData("Grup 4", "text 4", "Sample Url", strDate),
+        SampleData("Grup 5", "text 5", "Sample Url", strDate)
     )
 
     val listOfViewedData = listOf(
-        SampleData("Viewed 1", "Make It Easy Sample 1", "Sample Url", strDate),
-        SampleData("Viewed 2", "Make It Easy Sample 2", "Sample Url", strDate),
-        SampleData("Viewed 3", "Make It Easy Sample 3", "Sample Url", strDate),
-        SampleData("Viewed 4", "Make It Easy Sample 4", "Sample Url", strDate),
-        SampleData("Viewed 5", "Make It Easy Sample 5", "Sample Url", strDate)
+        SampleData("Grup 1", "text 1", "Sample Url", strDate),
+        SampleData("Grup 2", "text 2", "Sample Url", strDate),
+        SampleData("Grup 3", "text 3", "Sample Url", strDate),
+        SampleData("Grup 4", "text 4", "Sample Url", strDate),
+        SampleData("Grup 5", "text 5", "Sample Url", strDate)
     )
     LazyColumn(
         modifier = Modifier

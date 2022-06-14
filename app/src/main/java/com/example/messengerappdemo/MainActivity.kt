@@ -229,7 +229,7 @@ fun WhatsAppTab(navController: NavHostController) {
 @ExperimentalPagerApi
 @Composable
 fun Tabs(pagerState: PagerState) {
-    val list = listOf("SOHBET", "DURUM", "ARAMA")
+    val list = listOf("SOHBET", "GRUP", "ARAMA")
     val scope = rememberCoroutineScope()
     _tabCurrentStatus.value = pagerState.currentPage
 

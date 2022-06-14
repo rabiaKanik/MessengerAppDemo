@@ -37,14 +37,12 @@ import com.example.messengerappdemo.model.MessageData
 import com.example.messengerappdemo.model.UserProfile
 import com.example.messengerappdemo.model.userProfileList
 import com.example.messengerappdemo.ui.theme.*
-import java.util.*
 
 
 @SuppressLint("SimpleDateFormat")
 @Composable
 fun ChatList(userId :Int, navController: NavHostController) {
 
-    val strDate: String = android.icu.text.SimpleDateFormat("hh:mm a").format(Date())
     val menuExpanded = remember { mutableStateOf(false) }
     val userProfile = userProfileList.first { userProfile -> userId == userProfile.id }
 
@@ -58,8 +56,6 @@ fun ChatList(userId :Int, navController: NavHostController) {
         MessageData("Pellentesque habitant morbi tristique"),
         MessageData("Donec id venenatis libero,"),
         MessageData("Curabitur ac finibus diam, nec aliquam arcu."),
-        MessageData("Vivamus libero justo :))")
-
     )
 
     val topChatBar: @Composable () -> Unit = {
@@ -141,6 +137,7 @@ fun ChatList(userId :Int, navController: NavHostController) {
             elevation = AppBarDefaults.TopAppBarElevation
         )
     }
+
     Box{
         Image(
             modifier = Modifier.fillMaxSize(),
