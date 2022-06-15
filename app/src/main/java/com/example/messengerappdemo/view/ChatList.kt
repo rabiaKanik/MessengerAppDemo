@@ -65,7 +65,8 @@ fun ChatList(userId :Int, navController: NavHostController) {
         MessageData("Vulputate sed mauris"),
         MessageData("Pellentesque habitant morbi tristique"),
         MessageData("Donec id venenatis libero,"),
-        MessageData("Curabitur ac finibus diam, nec aliquam arcu."),
+        MessageData("Curabitur ac finibus diam, nec aliquam arcu.\n ........\n ..... \n" +
+                " ....."),
     )
 
     val topChatBar: @Composable () -> Unit = {

@@ -139,7 +139,7 @@ fun SettingsMiddleVariable(){
             .fillMaxWidth()
             .wrapContentHeight(align = Alignment.Top)
             //.clickable(onClick = { clickAction.invoke() })
-            .size(width = 200.dp, height = 350.dp),
+            .size(width = 200.dp, height = 365.dp),
         elevation = 5.dp,
         shape = RoundedCornerShape(1.dp),
         backgroundColor = Color.White

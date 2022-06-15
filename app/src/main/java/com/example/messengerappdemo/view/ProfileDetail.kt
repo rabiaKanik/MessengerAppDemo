@@ -68,7 +68,10 @@ fun UserProfileDetailsScreen(userId :Int,navController: NavHostController?){
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 ProfilePicture(userProfile.pictureUrl,userProfile.status,240.dp)
-                ProfileContent(userProfile.name, userProfile.status,Alignment.CenterHorizontally, userProfile.date)
+                Text(
+                    text = userProfile.name,
+                    fontSize = 18.sp
+                )
                 ProfileButtonAction()
                 ProfileNotification()
                 ProfileChildNotification()
@@ -183,7 +186,6 @@ fun ProfileButtonAction(){
                 )
                 //Text(text = "Sesli")
             }
-
         }
         Spacer(modifier = Modifier.width(10.dp))
         Button(
@@ -235,7 +237,7 @@ fun ProfileChildNotification(){
         modifier = Modifier
             //.padding(2.dp)
             .clickable { }
-            .padding(start = 27.dp, end = 24.dp),
+            .padding(start = 26.dp, end = 24.dp, top= 5.dp, bottom = 20.dp),
 
         elevation = 2.dp,
         shape = RoundedCornerShape(0.dp)
