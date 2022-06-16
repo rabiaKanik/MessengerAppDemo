@@ -66,8 +66,6 @@ class MainActivity : ComponentActivity() {
                     composable("users_list"){
                         UserListScreen(userProfiles, navController)
                     }
-                    //composable("whats_app_detail/{userId}") { UserProfileDetailsScreen(navController) }
-
                     composable(
                         route = "whats_app_detail/{userId}",
                         arguments = listOf(navArgument("userId"){
@@ -78,7 +76,6 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
-
         }
     }
 }
