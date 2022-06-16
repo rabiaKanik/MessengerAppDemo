@@ -218,7 +218,7 @@ fun BottomDesign() {
             AnimatedVisibility(visible = !expanded) {
                 Row() {
                     Icon(
-                        imageVector = Icons.Rounded.CameraAlt,
+                        imageVector = Icons.Rounded.AttachFile,
                         contentDescription = "Camera",
                         Modifier
                             .padding(8.dp, 13.dp, 4.dp, 10.dp)
@@ -250,7 +250,7 @@ fun BottomDesign() {
                         }},
                     placeholder = {
                         Text(
-                            text = "Message",
+                            text = "Mesaj...",
                             color = Color.Gray,
                             fontSize = 15.sp
                         )

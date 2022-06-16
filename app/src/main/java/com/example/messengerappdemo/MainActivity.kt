@@ -1,14 +1,12 @@
 package com.example.messengerappdemo
 
 import android.os.Bundle
-import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
@@ -21,14 +19,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -43,8 +39,6 @@ import com.example.messengerappdemo.utils.Constants.tabCurrentStatus
 import com.example.messengerappdemo.view.*
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
-import java.util.*
-import kotlin.collections.ArrayList
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalPagerApi::class)
@@ -150,9 +144,6 @@ fun MainAppActivity(navController: NavHostController) {
                                 DropdownMenuItem(onClick = { /*Handle New group*/ }) {
                                     Text(text = "Yeni grup")
                                 }
-                                DropdownMenuItem(onClick = { /*Handle New broadcast*/ }) {
-                                    Text(text = "Yeni Durum")
-                                }
                                 DropdownMenuItem(onClick = {  navController?.navigate("user_settings") }) {
                                     Text(text = "Ayarlar")
                                 }
@@ -210,8 +201,8 @@ fun MainAppActivity(navController: NavHostController) {
                     }
                     1 -> {
                         Icon(
-                            painterResource(id = R.drawable.ic_camera),
-                            contentDescription = "Camera",
+                            painterResource(id = R.drawable.ic_groups),
+                            contentDescription = "Group",
                             tint = Color.White,
                             modifier = Modifier.padding(10.dp)
                         )
@@ -285,8 +276,8 @@ fun TabsContent(pagerState: PagerState, navController: NavHostController) {
     HorizontalPager(state = pagerState) { page ->
         when(page) {
             0 -> UserListScreen(userProfiles,navController)
-            1 -> Status()
-            2 ->CallListScreen(userProfiles,navController)
+            1 -> GroupListScreen()
+            2 -> CallListScreen(userProfiles,navController)
         }
     }
 }
