@@ -40,12 +40,13 @@ import com.example.messengerappdemo.view.*
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
 
+// Main Class sayfalar arası geçişlerin yönetimi
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalPagerApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AppCloneTheme{
+            MessengerAppDemoTheme{
                 val navController = rememberNavController()
                 val userProfiles: List<UserProfile> = userProfileList
                 NavHost(
@@ -218,6 +219,7 @@ fun MainAppActivity(navController: NavHostController) {
     )
 }
 
+// START OF TABS SWITCHING CONTROLS
 @ExperimentalPagerApi
 @Composable
 fun WhatsAppTab(navController: NavHostController) {
@@ -266,6 +268,7 @@ fun Tabs(pagerState: PagerState) {
     }
 }
 
+// TABS SWITCHER CONTROLLER
 @ExperimentalPagerApi
 @Composable
 fun TabsContent(pagerState: PagerState, navController: NavHostController) {
@@ -278,6 +281,7 @@ fun TabsContent(pagerState: PagerState, navController: NavHostController) {
         }
     }
 }
+
 //SEARCH FUNCTION
 @Composable
 fun SearchView(state: MutableState<TextFieldValue>){
@@ -360,7 +364,7 @@ fun SearchViewPreview() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-   AppCloneTheme() {
+    MessengerAppDemoTheme() {
         MainAppActivity(navController = NavHostController(LocalContext.current))
     }
 }

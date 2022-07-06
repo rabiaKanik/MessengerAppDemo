@@ -24,7 +24,7 @@ import com.example.messengerappdemo.model.userProfileList
 import com.example.messengerappdemo.ui.theme.MainBlue
 import com.example.messengerappdemo.ui.theme.MainPink
 
-
+// PAGE STRUCTURE
 @Composable
 fun UserProfileDetailsScreen(userId :Int,navController: NavHostController?){
 

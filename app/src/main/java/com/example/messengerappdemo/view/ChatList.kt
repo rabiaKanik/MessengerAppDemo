@@ -48,7 +48,7 @@ import com.example.messengerappdemo.ui.theme.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-
+// CHAT PAGE MAIN STRUCTURE
 @SuppressLint("SimpleDateFormat")
 @Composable
 fun ChatList(userId :Int, navController: NavHostController) {
@@ -181,6 +181,7 @@ fun ChatList(userId :Int, navController: NavHostController) {
     }
 }
 
+//TEXT FIELD AREA
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BottomDesign() {
@@ -326,7 +327,7 @@ fun BottomDesign() {
             }
         }
     }
-
+// MESSAGE BOXES
     @Composable
     fun ChatListItem(data: MessageData, index: Int, userProfile: UserProfile) {
         Column(

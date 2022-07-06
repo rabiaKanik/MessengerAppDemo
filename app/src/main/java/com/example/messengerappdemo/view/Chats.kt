@@ -31,7 +31,7 @@ import com.example.messengerappdemo.ui.theme.MainError
 import com.example.messengerappdemo.ui.theme.MainGreen
 
 
-
+// CHATLIST PAGE MAIN STRUCTURE
 @Composable
 fun UserListScreen(userProfiles: List<UserProfile>, navController: NavHostController?){
 
@@ -48,6 +48,7 @@ fun UserListScreen(userProfiles: List<UserProfile>, navController: NavHostContro
     }
 }
 
+// EACH CHAT BOX IN THE LIST
 @Composable
 fun  ProfileCard(userProfile: UserProfile, clickAction:() -> Unit) {
     Card(
@@ -61,6 +62,7 @@ fun  ProfileCard(userProfile: UserProfile, clickAction:() -> Unit) {
         shape = RoundedCornerShape(20.dp),
         backgroundColor = Color.White
     ) {
+        // COMPONENTS INSIDE THE BOX
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -73,7 +75,6 @@ fun  ProfileCard(userProfile: UserProfile, clickAction:() -> Unit) {
         }
     }
 }
-
 
 @Composable
 fun ProfilePicture(pictureUrl: String, onlineStatus: Boolean, imageSize: Dp) {
@@ -125,6 +126,7 @@ fun ProfileContent(userName: String, onlineStatus: Boolean, alignment: Alignment
             )
 
         }
+        // son mesaj
         Text(
             text = "Selam!",
             fontSize = 15.sp,

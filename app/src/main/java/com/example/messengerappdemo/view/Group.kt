@@ -28,7 +28,7 @@ import com.example.messengerappdemo.ui.theme.MainGreen
 import com.example.messengerappdemo.ui.theme.liteGrayColor
 import java.util.*
 
-
+// GROUP PAGE MAIN STRUCTURE
 @SuppressLint("SimpleDateFormat")
 @Composable
 fun GroupListScreen() {

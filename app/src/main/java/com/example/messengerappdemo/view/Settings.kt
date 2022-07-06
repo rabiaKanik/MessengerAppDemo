@@ -78,6 +78,7 @@ fun Settings(navController: NavHostController?){
 
 }
 
+// SHOW SETTINGS FIRST COMPONENT : PROFILE
 @Composable
 fun SettingsTopVariable(){
     Column(
@@ -130,6 +131,7 @@ fun SettingsTopVariable(){
     }
 }
 
+// SHOW SETTINGS SECOND(MIDDLE) COMPONENT : SETTINGS FUNCTION
 @Composable
 fun SettingsMiddleVariable(){
 
